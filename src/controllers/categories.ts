@@ -26,9 +26,12 @@ export const createCategory: RequestHandler = async (req, res) => {
     const found = await Category.findOne({ name });
     if (found)
       return res.status(400).json({ error: 'category already exists' });
-    const category = await Category.create<categoryInput>({
-      name,
-    });
+    const category = await Category.create(
+      // <categoryInput>
+      {
+        name,
+      },
+    );
     res.json(category);
   } catch (error: unknown) {
     if (error instanceof Error) {
