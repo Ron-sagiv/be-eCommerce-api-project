@@ -42,12 +42,16 @@ export const createProduct: RequestHandler = async (req, res) => {
     const found = await Product.findOne({ name });
 
     if (found) return res.status(400).json({ error: 'Product already exists' });
-    const product = await Product.create<productInput>({
-      name,
-      price,
-      description,
-      categoryId,
-    });
+    const product = await Product.create(
+      // <productInput>
+      {
+        name,
+        price,
+        description,
+        categoryId,
+      },
+    );
+    await product.populate('categoryId', 'name');
     return res.status(201).json(product);
   } catch (error: unknown) {
     if (error instanceof Error) {

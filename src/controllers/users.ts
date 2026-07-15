@@ -31,11 +31,14 @@ export const createUser: RequestHandler = async (req, res) => {
     const found = await User.findOne({ email });
 
     if (found) return res.status(400).json({ error: 'User already exists' });
-    const user = await User.create<userInput>({
-      name,
-      email,
-      password,
-    });
+    const user = await User.create(
+      // <userInput>
+      {
+        name,
+        email,
+        password,
+      },
+    );
     return res.status(201).json(user);
   } catch (error: unknown) {
     if (error instanceof Error) {

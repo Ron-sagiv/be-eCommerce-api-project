@@ -20,7 +20,7 @@ const categorySchema = new mongoose.Schema(
     timestamps: true,
   },
 );
-///////////Check if this converts _id to id/////////////////////
+///////////this converts _id to id/////////////////////
 /////////////////////////////////////////////////////////
 set('toJSON', {
   virtuals: true,
