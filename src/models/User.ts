@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'First name is required'],
+      required: [true, 'Name is required'],
       trim: true,
     },
 
@@ -35,6 +35,8 @@ const userSchema = new mongoose.Schema(
   },
 );
 
+///////////Check if this converts _id to id/////////////////////
+/////////////////////////////////////////////////////////
 set('toJSON', {
   virtuals: true,
   transform: (doc, converted) => {
