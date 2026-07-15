@@ -2,7 +2,7 @@
 
 import { Schema, model, set } from 'mongoose';
 import mongoose from 'mongoose';
-import z, { number } from 'zod';
+import z from 'zod';
 
 export const productInputSchema = z.strictObject({
   name: z.string().min(3, 'min lentgh is 3 chars'),
