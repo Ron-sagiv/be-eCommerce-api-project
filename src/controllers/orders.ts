@@ -124,8 +124,7 @@ export const getOrderById: RequestHandler = async (req, res) => {
     }
   }
 };
-////write this!!///////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
+
 export const updateOrder: RequestHandler = async (req, res) => {
   try {
     const { id } = req.params;
@@ -212,10 +211,6 @@ export const updateOrder: RequestHandler = async (req, res) => {
     });
   }
 };
-
-///////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
 
 export const deleteOrder: RequestHandler = async (req, res) => {
   try {
