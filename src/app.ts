@@ -4,6 +4,7 @@ import cors from 'cors';
 import usersRoute from './routes/userRoutes.ts';
 import categoryRoute from './routes/categoryRoutes.ts';
 import productRoute from './routes/productRoutes.ts';
+import orderRoute from './routes/orderRoutes.ts';
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 app.use('/api/', usersRoute);
 app.use('/api/', categoryRoute);
 app.use('/api/', productRoute);
+app.use('/api/', orderRoute);
 
 app.listen(port, () =>
   console.log(`\x1b[34mMain app listening at http://localhost:${port}\x1b[0m`),

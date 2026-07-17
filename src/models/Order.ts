@@ -57,7 +57,7 @@ const orderSchema = new mongoose.Schema(
 
 ///////////this converts _id to id/////////////////////
 /////////////////////////////////////////////////////////
-set('toJSON', {
+orderSchema.set('toJSON', {
   virtuals: true,
   transform: (doc, converted) => {
     delete (converted as Partial<typeof converted>)._id;
