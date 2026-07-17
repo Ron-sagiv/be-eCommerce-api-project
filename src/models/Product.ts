@@ -2,7 +2,7 @@
 
 import { Schema, model, set } from 'mongoose';
 import mongoose from 'mongoose';
-import z, { number } from 'zod';
+import z from 'zod';
 
 export const productInputSchema = z.strictObject({
   name: z.string().min(3, 'min lentgh is 3 chars'),
@@ -45,7 +45,7 @@ const productSchema = new mongoose.Schema(
 );
 ///////////this converts _id to id/////////////////////
 /////////////////////////////////////////////////////////
-set('toJSON', {
+productSchema.set('toJSON', {
   virtuals: true,
   transform: (doc, converted) => {
     delete (converted as Partial<typeof converted>)._id;

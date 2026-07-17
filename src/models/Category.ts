@@ -22,7 +22,7 @@ const categorySchema = new mongoose.Schema(
 );
 ///////////this converts _id to id/////////////////////
 /////////////////////////////////////////////////////////
-set('toJSON', {
+categorySchema.set('toJSON', {
   virtuals: true,
   transform: (doc, converted) => {
     delete (converted as Partial<typeof converted>)._id;
