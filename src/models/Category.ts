@@ -10,15 +10,19 @@ const categorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'First name is required'],
+      required: [true, 'Name is required'],
       trim: true,
+      unique: true,
+      minlength: [3, 'Name of category must be at least 3 characters long'],
     },
   },
   {
     timestamps: true,
   },
 );
-set('toJSON', {
+///////////this converts _id to id/////////////////////
+/////////////////////////////////////////////////////////
+categorySchema.set('toJSON', {
   virtuals: true,
   transform: (doc, converted) => {
     delete (converted as Partial<typeof converted>)._id;

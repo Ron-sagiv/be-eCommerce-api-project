@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'First name is required'],
+      required: [true, 'Name is required'],
       trim: true,
     },
 
@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Password is required'],
       select: false,
-      minlength: [6, 'Password must be at least 6 characters long'],
+      minlength: [8, 'Password must be at least 8 characters long'],
     },
   },
   {
@@ -35,7 +35,9 @@ const userSchema = new mongoose.Schema(
   },
 );
 
-set('toJSON', {
+///////////this converts _id to id/////////////////////
+/////////////////////////////////////////////////////////
+userSchema.set('toJSON', {
   virtuals: true,
   transform: (doc, converted) => {
     delete (converted as Partial<typeof converted>)._id;
