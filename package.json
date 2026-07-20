@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --env-file=.env.development.local --watch --conditions development src/app.ts",
     "prebuild": "rm -rf dist",
-    "build": "tsc",
+    "build": "npx tsc",
     "prestart": "npm run build",
     "start": "cd dist && node --env-file=.env.production.local dist/app.js"
   },
